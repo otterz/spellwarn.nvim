@@ -27,7 +27,7 @@ function M.update_diagnostics(opts, bufnr)
                 diags[#diags + 1] = {
                     col      = error.col - 1, -- 0-indexed
                     lnum     = error.lnum - 1, -- 0-indexed
-                    message  = opts.prefix .. error.word,
+                    message  = opts.prefix .. error.word .. "[" .. error.type .. "]",
                     severity = vim.diagnostic.severity[opts.severity[error.type]],
                     source   = "spellwarn",
                 }
